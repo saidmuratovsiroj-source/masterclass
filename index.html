@@ -409,7 +409,7 @@ async function submitForm() {
     formData.append('phone', fullPhone);
     formData.append('date', now);
     formData.append('source', 'masterclass-landing');
-    await fetch('https://script.google.com/macros/s/AKfycbwHKHVMdI6wS55-nEoO7rnsMJ1ivbyTKlPGS4l0lpIeqZHYzSlTtzQicPdYYDSK7ziDtQ/exec',{
+    await fetch('https://script.google.com/macros/s/AKfycbwtFRSM-DtFnoXaTTtCt7xXNaQUyVsKyVJ5MFkFuQWhdkZA4WHoacRivE8BP934ywaKlw/exec',{
       method:'POST', mode:'no-cors',
       body: formData
     });
