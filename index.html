@@ -48,18 +48,18 @@
   /* top badge */
   .top-badge {
     display:flex; align-items:center; justify-content:center;
-    padding: 20px 0 0; gap:8px;
+    padding: 12px 0 0; gap:8px;
   }
   .badge-dot { width:8px; height:8px; border-radius:50%; background:var(--electric); animation: pulse 1.5s infinite; }
   @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(1.4)} }
   .badge-text { font-size:11px; color:var(--electric); letter-spacing:2px; text-transform:uppercase; font-weight:600; }
 
   /* date strip */
-  .date-strip { text-align:center; margin-top:14px; }
+  .date-strip { text-align:center; margin-top:8px; }
   .date-label { font-size:12px; color:rgba(255,255,255,.4); letter-spacing:3px; text-transform:uppercase; }
   .date-value {
     font-family:'Bebas Neue', sans-serif;
-    font-size:52px; line-height:1;
+    font-size:40px; line-height:1;
     background: linear-gradient(135deg, #fff 40%, var(--electric));
     -webkit-background-clip:text; -webkit-text-fill-color:transparent;
     margin-top:4px;
@@ -67,10 +67,10 @@
   .time-value { font-size:18px; color:var(--electric); font-weight:700; letter-spacing:4px; margin-top:2px; }
 
   /* headline */
-  .headline { text-align:center; margin-top:22px; padding: 0 4px; }
+  .headline { text-align:center; margin-top:12px; padding: 0 4px; }
   .headline h1 {
     font-family:'Bebas Neue', sans-serif;
-    font-size:38px; line-height:1.1;
+    font-size:30px; line-height:1.1;
     text-transform:uppercase; letter-spacing:1px;
   }
   .headline h1 .accent { color:var(--electric); }
@@ -80,8 +80,8 @@
   /* ── HERO IMAGE ── */
   .hero-img-wrap {
     position:relative;
-    margin: 20px auto 0;
-    width:260px; height:320px;
+    margin: 12px auto 0;
+    width:200px; height:240px;
   }
   .hero-img {
     width:100%; height:100%;
@@ -129,7 +129,7 @@
 
   /* ── COUNTDOWN ── */
   .countdown-bar {
-    margin: 20px auto 0;
+    margin: 12px auto 0;
     max-width:340px; width:100%;
     background: rgba(255,255,255,.04);
     border:1px solid rgba(255,255,255,.08);
@@ -180,7 +180,7 @@
   }
 
   /* ── CTA ── */
-  .cta-wrap { padding: 20px 0 0; }
+  .cta-wrap { padding: 12px 0 0; }
   .btn-cta {
     display:block; width:100%;
     background: linear-gradient(135deg, var(--red), #ff3a1a);
@@ -356,7 +356,7 @@
   <div class="hero-img-wrap">
     <div class="hero-img-inner">
       <img class="hero-img"
-        src="speaker.jpg"
+        src="https://masterclass-drab-seven.vercel.app/speaker.jpg"
         onerror="this.parentElement.style.background='linear-gradient(135deg,rgba(0,87,255,.25),rgba(0,200,255,.1))'; this.style.display='none';"
         alt="Speaker">
     </div>
