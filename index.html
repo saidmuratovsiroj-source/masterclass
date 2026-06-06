@@ -404,7 +404,7 @@ async function submitForm() {
   const fullPhone = document.getElementById('countryCode').value + phone;
   const now = new Date().toLocaleString('uz-UZ',{timeZone:'Asia/Tashkent'});
   try {
-    await fetch('https://script.google.com/macros/s/APPS_SCRIPT_ID/exec',{
+    await fetch('https://script.google.com/macros/s/AKfycbwHKHVMdI6wS55-nEoO7rnsMJ1ivbyTKlPGS4l0lpIeqZHYzSlTtzQicPdYYDSK7ziDtQ/exec',{
       method:'POST', mode:'no-cors', headers:{'Content-Type':'application/json'},
       body:JSON.stringify({name, phone:fullPhone, date:now, source:'masterclass-landing'})
     });
