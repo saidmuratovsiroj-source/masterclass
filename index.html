@@ -11,8 +11,6 @@
     --dark: #070a12;
     --blue: #0057ff;
     --electric: #00c8ff;
-    --card: rgba(255,255,255,0.04);
-    --border: rgba(255,255,255,0.08);
   }
   * { margin:0; padding:0; box-sizing:border-box; }
   body {
@@ -20,7 +18,6 @@
     color: #fff;
     font-family: 'Montserrat', sans-serif;
     overflow-x: hidden;
-    min-height: 100vh;
   }
   body::before {
     content:'';
@@ -37,252 +34,195 @@
     pointer-events:none; z-index:0;
   }
 
-  /* ── HERO ── */
   .hero {
     position:relative; z-index:1;
     min-height:100svh;
     display:flex; flex-direction:column;
-    padding: 0 20px 32px;
+    padding: 0 20px 20px;
   }
 
-  /* top badge */
+  /* badge */
   .top-badge {
     display:flex; align-items:center; justify-content:center;
-    padding: 12px 0 0; gap:8px;
+    padding: 10px 0 0; gap:8px;
   }
-  .badge-dot { width:8px; height:8px; border-radius:50%; background:var(--electric); animation: pulse 1.5s infinite; }
+  .badge-dot { width:7px; height:7px; border-radius:50%; background:var(--electric); animation: pulse 1.5s infinite; }
   @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(1.4)} }
-  .badge-text { font-size:11px; color:var(--electric); letter-spacing:2px; text-transform:uppercase; font-weight:600; }
+  .badge-text { font-size:10px; color:var(--electric); letter-spacing:2px; text-transform:uppercase; font-weight:600; }
 
-  /* date strip */
-  .date-strip { text-align:center; margin-top:8px; }
-  .date-label { font-size:12px; color:rgba(255,255,255,.4); letter-spacing:3px; text-transform:uppercase; }
+  /* date */
+  .date-strip { text-align:center; margin-top:4px; }
+  .date-label { font-size:10px; color:rgba(255,255,255,.4); letter-spacing:3px; text-transform:uppercase; }
   .date-value {
     font-family:'Bebas Neue', sans-serif;
-    font-size:40px; line-height:1;
+    font-size:36px; line-height:1;
     background: linear-gradient(135deg, #fff 40%, var(--electric));
     -webkit-background-clip:text; -webkit-text-fill-color:transparent;
-    margin-top:4px;
+    margin-top:2px;
   }
-  .time-value { font-size:18px; color:var(--electric); font-weight:700; letter-spacing:4px; margin-top:2px; }
+  .time-value { font-size:14px; color:var(--electric); font-weight:700; letter-spacing:4px; margin-top:0px; }
 
   /* headline */
-  .headline { text-align:center; margin-top:12px; padding: 0 4px; }
+  .headline { text-align:center; margin-top:8px; padding: 0 4px; }
   .headline h1 {
     font-family:'Bebas Neue', sans-serif;
-    font-size:30px; line-height:1.1;
+    font-size:30px; line-height:1.05;
     text-transform:uppercase; letter-spacing:1px;
   }
   .headline h1 .accent { color:var(--electric); }
   .headline h1 .accent-red { color:var(--red); }
-  .sub-headline { font-size:13px; color:rgba(255,255,255,.55); margin-top:10px; line-height:1.6; }
+  .sub-headline {
+    font-size:12px; color:rgba(255,255,255,.55);
+    margin-top:5px; line-height:1.5;
+  }
 
-  /* ── HERO IMAGE ── */
+  /* image */
   .hero-img-wrap {
     position:relative;
-    margin: 12px auto 0;
-    width:200px; height:240px;
-  }
-  .hero-img {
-    width:100%; height:100%;
-    object-fit:cover; object-position:top center;
-    border-radius:20px;
-    display:block;
+    margin: 10px auto 0;
+    width:180px; height:220px;
   }
   .hero-img-inner {
     width:100%; height:100%;
-    border-radius:20px;
-    overflow:hidden;
-    position:relative;
+    border-radius:16px; overflow:hidden; position:relative;
   }
   .hero-img-inner::after {
-    content:'';
-    position:absolute; inset:0;
+    content:''; position:absolute; inset:0;
     background: linear-gradient(180deg, transparent 50%, rgba(7,10,18,.9) 100%);
-    border-radius:20px;
+    border-radius:16px;
   }
-  .img-border {
-    position:absolute; inset:0; border-radius:20px;
-    border:1px solid rgba(0,200,255,.25);
-    pointer-events:none; z-index:2;
-  }
-  .corner { position:absolute; width:20px; height:20px; border-color:var(--electric); border-style:solid; z-index:3; }
-  .corner-tl { top:10px; left:10px; border-width:2px 0 0 2px; }
-  .corner-tr { top:10px; right:10px; border-width:2px 2px 0 0; }
-  .corner-bl { bottom:10px; left:10px; border-width:0 0 2px 2px; }
-  .corner-br { bottom:10px; right:10px; border-width:0 2px 2px 0; }
+  .hero-img { width:100%; height:100%; object-fit:cover; object-position:top center; border-radius:16px; display:block; }
+  .img-border { position:absolute; inset:0; border-radius:16px; border:1px solid rgba(0,200,255,.25); pointer-events:none; z-index:2; }
+  .corner { position:absolute; width:16px; height:16px; border-color:var(--electric); border-style:solid; z-index:3; }
+  .corner-tl { top:8px; left:8px; border-width:2px 0 0 2px; }
+  .corner-tr { top:8px; right:8px; border-width:2px 2px 0 0; }
+  .corner-bl { bottom:8px; left:8px; border-width:0 0 2px 2px; }
+  .corner-br { bottom:8px; right:8px; border-width:0 2px 2px 0; }
   .hero-tag {
-    position:absolute; top:16px; right:-10px; z-index:4;
+    position:absolute; top:12px; right:-10px; z-index:4;
     background: var(--red); color:#fff;
-    font-size:9px; font-weight:800;
-    letter-spacing:1px; padding:4px 10px;
+    font-size:8px; font-weight:800;
+    letter-spacing:1px; padding:3px 8px;
     border-radius:4px; text-transform:uppercase;
     transform:rotate(3deg);
-    box-shadow:0 0 16px rgba(232,0,30,.5);
+    box-shadow:0 0 12px rgba(232,0,30,.5);
   }
   .img-glow {
-    position:absolute; bottom:-30px; left:50%; transform:translateX(-50%);
-    width:180px; height:80px; border-radius:50%;
+    position:absolute; bottom:-20px; left:50%; transform:translateX(-50%);
+    width:140px; height:60px; border-radius:50%;
     background: radial-gradient(ellipse, rgba(0,87,255,0.5), transparent 70%);
-    filter:blur(20px); pointer-events:none; z-index:0;
+    filter:blur(16px); pointer-events:none; z-index:0;
   }
 
-  /* ── COUNTDOWN ── */
+  /* countdown */
   .countdown-bar {
-    margin: 12px auto 0;
+    margin: 10px auto 0;
     max-width:340px; width:100%;
     background: rgba(255,255,255,.04);
     border:1px solid rgba(255,255,255,.08);
-    border-radius:16px;
-    padding:16px 20px;
+    border-radius:14px;
+    padding:10px 16px;
   }
   .countdown-top {
     display:flex; align-items:center; justify-content:space-between;
-    margin-bottom:12px;
+    margin-bottom:6px;
   }
-  .cd-urgent-label {
-    font-size:10px; color:rgba(255,255,255,.4);
-    letter-spacing:1px; text-transform:uppercase;
-  }
-  .cd-live {
-    display:flex; align-items:center; gap:5px;
-    font-size:10px; color:var(--red); font-weight:700;
-  }
-  .cd-live-dot {
-    width:6px; height:6px; border-radius:50%; background:var(--red);
-    animation:pulse 1s infinite;
-  }
-
-  .countdown-nums {
-    display:flex; align-items:center; justify-content:center; gap:4px;
-  }
+  .cd-urgent-label { font-size:9px; color:rgba(255,255,255,.4); letter-spacing:1px; text-transform:uppercase; }
+  .cd-live { display:flex; align-items:center; gap:5px; font-size:9px; color:var(--red); font-weight:700; }
+  .cd-live-dot { width:5px; height:5px; border-radius:50%; background:var(--red); animation:pulse 1s infinite; }
+  .countdown-nums { display:flex; align-items:center; justify-content:center; gap:4px; }
   .cd-block { text-align:center; flex:1; }
   .cd-num {
     font-family:'Bebas Neue', sans-serif;
-    font-size:52px; line-height:1;
-    color:var(--electric);
+    font-size:42px; line-height:1; color:var(--electric);
     text-shadow: 0 0 20px rgba(0,200,255,.4);
   }
-  .cd-sep {
-    font-family:'Bebas Neue', sans-serif;
-    font-size:44px; color:var(--red); line-height:1;
-    margin-bottom:14px; flex-shrink:0;
-  }
-  .cd-unit {
-    font-size:9px; color:rgba(255,255,255,.35);
-    letter-spacing:2px; text-transform:uppercase;
-    margin-top:2px;
-  }
-  .cd-bottom {
-    text-align:center; margin-top:10px;
-    font-size:11px; color:var(--red); font-weight:700;
-    letter-spacing:.5px;
-  }
+  .cd-sep { font-family:'Bebas Neue', sans-serif; font-size:36px; color:var(--red); line-height:1; margin-bottom:10px; flex-shrink:0; }
+  .cd-unit { font-size:8px; color:rgba(255,255,255,.35); letter-spacing:2px; text-transform:uppercase; margin-top:1px; }
+  .cd-bottom { text-align:center; margin-top:6px; font-size:10px; color:var(--red); font-weight:700; }
 
-  /* ── CTA ── */
-  .cta-wrap { padding: 12px 0 0; }
+  /* CTA */
+  .cta-wrap { padding: 10px 0 0; }
   .btn-cta {
     display:block; width:100%;
     background: linear-gradient(135deg, var(--red), #ff3a1a);
     color:#fff; font-family:'Montserrat', sans-serif;
     font-size:15px; font-weight:800;
     letter-spacing:2px; text-transform:uppercase;
-    padding:18px; border:none; border-radius:50px;
+    padding:16px; border:none; border-radius:50px;
     cursor:pointer; text-align:center;
-    box-shadow: 0 0 30px rgba(232,0,30,.4), 0 4px 20px rgba(232,0,30,.3);
+    box-shadow: 0 0 30px rgba(232,0,30,.4);
     transition: transform .15s;
     text-decoration:none; position:relative; overflow:hidden;
   }
-  .btn-cta::before {
-    content:''; position:absolute; inset:0;
-    background:linear-gradient(135deg, rgba(255,255,255,.15), transparent);
-  }
+  .btn-cta::before { content:''; position:absolute; inset:0; background:linear-gradient(135deg, rgba(255,255,255,.15), transparent); }
   .btn-cta:active { transform:scale(.97); }
-  .seats-warning {
-    text-align:center; margin-top:8px;
-    font-size:11px; color:rgba(255,255,255,.35);
-  }
+  .seats-warning { text-align:center; margin-top:6px; font-size:11px; color:rgba(255,255,255,.35); }
   .seats-warning span { color:var(--red); font-weight:700; }
 
-  /* ── MODAL ── */
+  /* MODAL */
   .modal-overlay {
     display:none; position:fixed; inset:0; z-index:100;
     background:rgba(0,0,0,.85); backdrop-filter:blur(8px);
-    align-items:flex-end; justify-content:center;
+    align-items:center; justify-content:center;
   }
   .modal-overlay.open { display:flex; }
   .modal {
     background: linear-gradient(180deg, #0d1220, #070a12);
     border:1px solid rgba(0,200,255,.15);
-    border-radius:28px 28px 0 0;
+    border-radius:28px;
     padding:28px 24px 44px;
     width:100%; max-width:480px;
     animation: slideUp .3s cubic-bezier(.34,1.56,.64,1);
   }
   @keyframes slideUp { from{transform:translateY(100%)} to{transform:none} }
-  .modal-handle {
-    width:40px; height:4px; border-radius:2px;
-    background:rgba(255,255,255,.15); margin:0 auto 24px;
-  }
-  .modal-steps {
-    display:flex; align-items:center; justify-content:center;
-    gap:8px; margin-bottom:24px;
-  }
+  .modal-handle { width:40px; height:4px; border-radius:2px; background:rgba(255,255,255,.15); margin:0 auto 20px; }
+  .modal-steps { display:flex; align-items:center; justify-content:center; gap:8px; margin-bottom:20px; }
   .step-dot {
     width:32px; height:32px; border-radius:50%;
     display:flex; align-items:center; justify-content:center;
     font-size:13px; font-weight:700;
-    border:2px solid rgba(255,255,255,.15);
-    color:rgba(255,255,255,.3); transition:.3s;
+    border:2px solid rgba(255,255,255,.15); color:rgba(255,255,255,.3); transition:.3s;
   }
   .step-dot.done { background:var(--electric); border-color:var(--electric); color:var(--dark); }
   .step-dot.active { border-color:var(--electric); color:var(--electric); }
   .step-line { flex:1; max-width:40px; height:2px; background:rgba(255,255,255,.1); }
   .step-line.done { background:var(--electric); }
-  .modal-title {
-    font-family:'Bebas Neue', sans-serif;
-    font-size:26px; letter-spacing:1px;
-    text-align:center; margin-bottom:6px;
-  }
-  .modal-sub { font-size:12px; color:rgba(255,255,255,.4); text-align:center; margin-bottom:24px; }
+  .modal-title { font-family:'Bebas Neue', sans-serif; font-size:26px; letter-spacing:1px; text-align:center; margin-bottom:6px; }
+  .modal-sub { font-size:12px; color:rgba(255,255,255,.4); text-align:center; margin-bottom:20px; }
   .step-page { display:none; }
   .step-page.active { display:block; }
-  .phone-row { display:flex; gap:10px; margin-bottom:16px; }
+  .phone-row { display:flex; gap:10px; margin-bottom:14px; }
   .country-select {
     background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12);
-    border-radius:12px; color:#fff;
-    font-family:'Montserrat',sans-serif; font-size:14px; font-weight:600;
-    padding:0 12px; height:52px;
+    border-radius:12px; color:#fff; font-family:'Montserrat',sans-serif;
+    font-size:14px; font-weight:600; padding:0 12px; height:52px;
     -webkit-appearance:none; outline:none; cursor:pointer; flex-shrink:0; width:90px;
   }
   .phone-input, .name-input {
     flex:1; height:52px;
     background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12);
-    border-radius:12px; color:#fff;
-    font-family:'Montserrat',sans-serif; font-size:16px;
-    padding:0 16px; outline:none; transition:border-color .2s;
-    -webkit-appearance:none;
+    border-radius:12px; color:#fff; font-family:'Montserrat',sans-serif;
+    font-size:16px; padding:0 16px; outline:none; transition:border-color .2s; -webkit-appearance:none;
   }
-  .name-input { width:100%; margin-bottom:16px; }
+  .name-input { width:100%; margin-bottom:14px; }
   .phone-input:focus, .name-input:focus { border-color:var(--electric); }
   .phone-input::placeholder, .name-input::placeholder { color:rgba(255,255,255,.25); }
-  .input-error { font-size:11px; color:var(--red); margin-top:-10px; margin-bottom:14px; display:none; }
+  .input-error { font-size:11px; color:var(--red); margin-top:-8px; margin-bottom:12px; display:none; }
   .btn-modal {
     display:block; width:100%;
     background:linear-gradient(135deg, var(--red), #ff3a1a);
     color:#fff; font-family:'Montserrat',sans-serif;
-    font-size:14px; font-weight:800;
-    letter-spacing:2px; text-transform:uppercase;
-    padding:16px; border:none; border-radius:50px;
-    cursor:pointer; position:relative; overflow:hidden;
+    font-size:14px; font-weight:800; letter-spacing:2px; text-transform:uppercase;
+    padding:16px; border:none; border-radius:50px; cursor:pointer;
     box-shadow:0 0 24px rgba(232,0,30,.35); transition:transform .15s;
   }
   .btn-modal:active { transform:scale(.97); }
   .btn-modal:disabled { opacity:.5; cursor:default; }
   .step3-content { text-align:center; }
-  .step3-arrows { display:flex; justify-content:center; gap:6px; margin:20px 0; }
+  .step3-arrows { display:flex; justify-content:center; gap:6px; margin:16px 0; }
   .arrow-down {
-    width:2px; height:40px; position:relative;
+    width:2px; height:36px; position:relative;
     background:linear-gradient(180deg, transparent, var(--red)); border-radius:2px;
     animation: arrowAnim 1s ease infinite;
   }
@@ -292,73 +232,52 @@
   .arrow-down:nth-child(5){animation-delay:.6s}
   .arrow-down::after {
     content:''; position:absolute; bottom:0; left:50%; transform:translateX(-50%);
-    border-left:5px solid transparent; border-right:5px solid transparent;
-    border-top:7px solid var(--red);
+    border-left:5px solid transparent; border-right:5px solid transparent; border-top:7px solid var(--red);
   }
   @keyframes arrowAnim { 0%,100%{opacity:.3;transform:translateY(-6px)} 50%{opacity:1;transform:translateY(0)} }
   .btn-telegram {
-    display:flex; align-items:center; justify-content:center; gap:10px;
-    width:100%;
+    display:flex; align-items:center; justify-content:center; gap:10px; width:100%;
     background:linear-gradient(135deg, #0088cc, #006fab);
     color:#fff; font-family:'Montserrat',sans-serif;
-    font-size:14px; font-weight:800;
-    letter-spacing:2px; text-transform:uppercase;
-    padding:18px; border:none; border-radius:50px;
-    cursor:pointer; box-shadow:0 0 24px rgba(0,136,204,.4);
-    text-decoration:none; transition:transform .15s;
+    font-size:14px; font-weight:800; letter-spacing:2px; text-transform:uppercase;
+    padding:18px; border:none; border-radius:50px; cursor:pointer;
+    box-shadow:0 0 24px rgba(0,136,204,.4); text-decoration:none; transition:transform .15s;
   }
   .btn-telegram:active { transform:scale(.97); }
   .success-msg { display:none; text-align:center; padding:16px 0; }
   .success-emoji { font-size:48px; margin-bottom:10px; }
   .success-title { font-family:'Bebas Neue',sans-serif; font-size:28px; margin-bottom:8px; color:var(--electric); }
   .success-sub { font-size:13px; color:rgba(255,255,255,.5); line-height:1.6; }
-  .spinner {
-    display:inline-block; width:18px; height:18px;
-    border:2px solid rgba(255,255,255,.3); border-top-color:#fff;
-    border-radius:50%; animation:spin .7s linear infinite;
-    vertical-align:middle; margin-right:8px;
-  }
+  .spinner { display:inline-block; width:18px; height:18px; border:2px solid rgba(255,255,255,.3); border-top-color:#fff; border-radius:50%; animation:spin .7s linear infinite; vertical-align:middle; margin-right:8px; }
   @keyframes spin { to{transform:rotate(360deg)} }
 </style>
 </head>
 <body>
-
 <div class="glow-top"></div>
-
 <section class="hero">
 
-  <!-- badge -->
   <div class="top-badge">
     <div class="badge-dot"></div>
     <span class="badge-text">Bepul Masterclass</span>
   </div>
 
-  <!-- date -->
   <div class="date-strip">
     <div class="date-label">Sana</div>
     <div class="date-value">16–17 IYUN</div>
     <div class="time-value">20:00</div>
   </div>
 
-  <!-- headline -->
   <div class="headline">
-    <h1>
-      <span class="accent">Sun'iy Intellekt</span><br>
-      <span class="accent-red">Hamma Uchun</span>
-    </h1>
+    <h1><span class="accent">Sun'iy Intellekt</span><br><span class="accent-red">Hamma Uchun</span></h1>
     <p class="sub-headline">
-      AI va YouTube vositalaridan foydalanib oyiga <strong style="color:#fff">1000$+</strong> topishni<br>
-      <strong style="color:#fff">BEPUL</strong> o'rgataman
+      AI va YouTube vositalaridan foydalanib<br>
+      oyiga <strong style="color:#fff">1000$+</strong> topishni <strong style="color:#fff">BEPUL</strong> o'rgataman
     </p>
   </div>
 
-  <!-- image -->
   <div class="hero-img-wrap">
     <div class="hero-img-inner">
-      <img class="hero-img"
-        src="https://masterclass-drab-seven.vercel.app/speaker.jpg"
-        onerror="this.parentElement.style.background='linear-gradient(135deg,rgba(0,87,255,.25),rgba(0,200,255,.1))'; this.style.display='none';"
-        alt="Speaker">
+      <img class="hero-img" src="https://masterclass-drab-seven.vercel.app/speaker.jpg" alt="Speaker">
     </div>
     <div class="img-border"></div>
     <div class="corner corner-tl"></div>
@@ -369,7 +288,6 @@
     <div class="img-glow"></div>
   </div>
 
-  <!-- countdown -->
   <div class="countdown-bar">
     <div class="countdown-top">
       <div class="cd-urgent-label">Hoziroq ro'yxatdan o'ting!</div>
@@ -389,7 +307,6 @@
     <div class="cd-bottom">⚡ Joylar soni cheklangan!</div>
   </div>
 
-  <!-- CTA -->
   <div class="cta-wrap">
     <button class="btn-cta" onclick="openModal()">RO'YXATDAN O'TISH →</button>
     <div class="seats-warning">🔴 Qolgan joylar: <span>sanoqli</span></div>
@@ -397,52 +314,47 @@
 
 </section>
 
-<!-- ══════════ MODAL ══════════ -->
+<!-- MODAL -->
 <div class="modal-overlay" id="modalOverlay" onclick="handleOverlayClick(event)">
   <div class="modal" id="modal">
     <div class="modal-handle"></div>
-
     <div class="modal-steps">
-      <div class="step-dot done" id="s1">✓</div>
+      <div class="step-dot active" id="s1">1</div>
       <div class="step-line" id="sl1"></div>
-      <div class="step-dot active" id="s2">2</div>
-      <div class="step-line" id="sl2"></div>
-      <div class="step-dot" id="s3">3</div>
+      <div class="step-dot" id="s2">2</div>
     </div>
 
-    <!-- step 1: phone -->
     <div class="step-page active" id="page1">
       <div class="modal-title">Ro'yxatdan O'tish</div>
-      <div class="modal-sub">Telefon raqamingizni kiriting</div>
+      <div class="modal-sub">Ma'lumotlaringizni kiriting</div>
+      <input class="name-input" id="nameInput" type="text" placeholder="Ism va familiya" autocomplete="name" style="margin-bottom:12px;">
+      <div class="input-error" id="nameError">Ismingizni kiriting</div>
       <div class="phone-row">
         <select class="country-select" id="countryCode">
           <option value="+998">🇺🇿 +998</option>
           <option value="+7">🇷🇺 +7</option>
           <option value="+1">🇺🇸 +1</option>
         </select>
-        <input class="phone-input" id="phoneInput" type="tel"
-          placeholder="99 123 45 67" maxlength="12" inputmode="numeric">
+        <input class="phone-input" id="phoneInput" type="tel" placeholder="99 123 45 67" maxlength="12" inputmode="numeric">
       </div>
       <div class="input-error" id="phoneError">To'g'ri telefon raqam kiriting</div>
-      <button class="btn-modal" onclick="goStep2()">DAVOM ETISH →</button>
+      <button class="btn-modal" id="submitBtn" onclick="submitForm()">DAVOM ETISH →</button>
     </div>
 
-    <!-- step 2: name -->
-    <div class="step-page" id="page2">
-      <div class="modal-title">Ismingiz</div>
-      <div class="modal-sub">Qanday murojaat qilaylik?</div>
-      <input class="name-input" id="nameInput" type="text"
-        placeholder="Ism va familiya" autocomplete="name">
-      <div class="input-error" id="nameError">Ismingizni kiriting</div>
-      <button class="btn-modal" id="submitBtn" onclick="submitForm()">TASDIQLASH →</button>
-    </div>
+    <div class="step-page" id="page2"></div>
 
-    <!-- step 3: telegram -->
     <div class="step-page" id="page3">
       <div class="step3-content">
-        <div class="modal-title">So'nggi Qadam...</div>
-        <div class="modal-sub">Masterklassda qatnashish uchun<br>Telegram kanalimizga obuna bo'ling!</div>
-        <div class="step3-arrows">
+        <div class="modal-steps" style="margin-bottom:24px;">
+          <div class="step-dot done">✓</div>
+          <div class="step-line done"></div>
+          <div class="step-dot done">✓</div>
+          <div class="step-line done"></div>
+          <div class="step-dot active">3</div>
+        </div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:1px;text-align:center;margin-bottom:10px;">So'nggi qadam...</div>
+        <div style="font-size:13px;color:rgba(255,255,255,.5);text-align:center;line-height:1.6;margin-bottom:20px;">Masterklassda qatnashish uchun, yopiq<br>telegram kanalimizga obuna bo'ling!</div>
+        <div class="step3-arrows" style="margin:0 0 20px;">
           <div class="arrow-down"></div><div class="arrow-down"></div>
           <div class="arrow-down"></div><div class="arrow-down"></div>
           <div class="arrow-down"></div>
@@ -457,80 +369,54 @@
         <div class="success-sub">Muvaffaqiyatli ro'yxatdan o'tdingiz.<br>Masterclass haqida Telegram da xabar beramiz!</div>
       </div>
     </div>
-  </div>
+
+
 </div>
 
 <script>
-// ── COUNTDOWN: loops 2min → 0 → restart ──
 let totalSecs = 120;
 function updateCD() {
-  const m = Math.floor(totalSecs / 60);
-  const s = totalSecs % 60;
+  const m = Math.floor(totalSecs/60), s = totalSecs%60;
   document.getElementById('cd-mins').textContent = String(m).padStart(2,'0');
   document.getElementById('cd-secs').textContent = String(s).padStart(2,'0');
-  if (totalSecs > 0) { totalSecs--; }
-  else { totalSecs = 120; }
+  totalSecs > 0 ? totalSecs-- : (totalSecs = 120);
 }
-updateCD();
-setInterval(updateCD, 1000);
+updateCD(); setInterval(updateCD, 1000);
 
-// ── MODAL ──
-function openModal() {
-  document.getElementById('modalOverlay').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-function closeModal() {
-  document.getElementById('modalOverlay').classList.remove('open');
-  document.body.style.overflow = '';
-}
-function handleOverlayClick(e) {
-  if (e.target === document.getElementById('modalOverlay')) closeModal();
-}
+function openModal() { document.getElementById('modalOverlay').classList.add('open'); document.body.style.overflow='hidden'; }
+function closeModal() { document.getElementById('modalOverlay').classList.remove('open'); document.body.style.overflow=''; }
+function handleOverlayClick(e) { if(e.target===document.getElementById('modalOverlay')) closeModal(); }
 
 document.getElementById('phoneInput').addEventListener('input', function() {
   this.value = this.value.replace(/[^0-9 ]/g,'');
-  document.getElementById('phoneError').style.display = 'none';
+  document.getElementById('phoneError').style.display='none';
 });
-
-function goStep2() {
-  const ph = document.getElementById('phoneInput').value.replace(/\s/g,'');
-  if (ph.length < 9) { document.getElementById('phoneError').style.display='block'; return; }
-  document.getElementById('s2').textContent='✓';
-  document.getElementById('s2').classList.remove('active'); document.getElementById('s2').classList.add('done');
-  document.getElementById('sl1').classList.add('done');
-  document.getElementById('s3').classList.add('active');
-  document.getElementById('page1').classList.remove('active');
-  document.getElementById('page2').classList.add('active');
-}
 
 async function submitForm() {
   const name = document.getElementById('nameInput').value.trim();
-  if (!name) { document.getElementById('nameError').style.display='block'; return; }
+  const phone = document.getElementById('phoneInput').value.replace(/\s/g,'');
+  if(!name) { document.getElementById('nameError').style.display='block'; return; }
+  if(phone.length < 9) { document.getElementById('phoneError').style.display='block'; return; }
   document.getElementById('nameError').style.display='none';
+  document.getElementById('phoneError').style.display='none';
   const btn = document.getElementById('submitBtn');
   btn.disabled=true; btn.innerHTML='<span class="spinner"></span>Saqlanmoqda...';
-  const phone = document.getElementById('countryCode').value + document.getElementById('phoneInput').value.replace(/\s/g,'');
+  const fullPhone = document.getElementById('countryCode').value + phone;
   const now = new Date().toLocaleString('uz-UZ',{timeZone:'Asia/Tashkent'});
   try {
     await fetch('https://script.google.com/macros/s/APPS_SCRIPT_ID/exec',{
-      method:'POST', mode:'no-cors',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({name, phone, date:now, source:'masterclass-landing'})
+      method:'POST', mode:'no-cors', headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({name, phone:fullPhone, date:now, source:'masterclass-landing'})
     });
   } catch(e){}
-  document.getElementById('sl2').classList.add('done');
-  document.getElementById('s3').textContent='✓';
-  document.getElementById('s3').classList.remove('active'); document.getElementById('s3').classList.add('done');
-  document.getElementById('page2').classList.remove('active');
-  document.getElementById('page3').classList.add('active');
+  document.getElementById('s1').textContent='✓'; document.getElementById('s1').classList.remove('active'); document.getElementById('s1').classList.add('done');
+  document.getElementById('sl1').classList.add('done');
+  document.getElementById('s2').textContent='2'; document.getElementById('s2').classList.add('active');
+  document.getElementById('page1').classList.remove('active'); document.getElementById('page3').classList.add('active');
 }
 
 function markDone() {
-  setTimeout(()=>{
-    document.querySelector('.step3-content').style.display='none';
-    document.getElementById('successMsg').style.display='block';
-    setTimeout(closeModal, 3000);
-  },800);
+  setTimeout(()=>{ document.querySelector('.step3-content').style.display='none'; document.getElementById('successMsg').style.display='block'; setTimeout(closeModal,3000); },800);
 }
 </script>
 </body>
