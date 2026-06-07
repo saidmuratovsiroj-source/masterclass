@@ -435,10 +435,10 @@ async function submitForm() {
   document.getElementById('s2').textContent='2'; document.getElementById('s2').classList.add('active');
   document.getElementById('page1').classList.remove('active'); document.getElementById('page3').classList.add('active');
   // Pixel: kontakt qoldirdi (oraliq bosqich)
-  if(typeof fbq !== 'undefined') { fbq('track', 'CompleteRegistration'); }
+  if(typeof fbq !== 'undefined') { fbq('track', 'Lead'); }
 }
 
-function trackLead() { if(typeof fbq !== "undefined") { fbq("track", "Lead"); } }
+function trackLead() { if(typeof fbq !== "undefined") { fbq("track", "Subscribe"); } }
 function markDone() {
   setTimeout(()=>{ document.querySelector('.step3-content').style.display='none'; document.getElementById('successMsg').style.display='block'; setTimeout(closeModal,3000); },800);
 }
