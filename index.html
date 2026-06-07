@@ -251,6 +251,23 @@
   .spinner { display:inline-block; width:18px; height:18px; border:2px solid rgba(255,255,255,.3); border-top-color:#fff; border-radius:50%; animation:spin .7s linear infinite; vertical-align:middle; margin-right:8px; }
   @keyframes spin { to{transform:rotate(360deg)} }
 </style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1814449436190023');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1814449436190023&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 </head>
 <body>
 <div class="glow-top"></div>
@@ -359,7 +376,7 @@
           <div class="arrow-down"></div><div class="arrow-down"></div>
           <div class="arrow-down"></div>
         </div>
-        <a href="https://t.me/aipromanager" target="_blank" class="btn-telegram" onclick="markDone()">
+        <a href="https://t.me/aipromanager" target="_blank" class="btn-telegram" onclick="trackLead();markDone()">
           ✈️ OBUNA BO'LISH
         </a>
       </div>
@@ -417,8 +434,11 @@ async function submitForm() {
   document.getElementById('sl1').classList.add('done');
   document.getElementById('s2').textContent='2'; document.getElementById('s2').classList.add('active');
   document.getElementById('page1').classList.remove('active'); document.getElementById('page3').classList.add('active');
+  // Pixel: kontakt qoldirdi (oraliq bosqich)
+  if(typeof fbq !== 'undefined') { fbq('track', 'CompleteRegistration'); }
 }
 
+function trackLead() { if(typeof fbq !== "undefined") { fbq("track", "Lead"); } }
 function markDone() {
   setTimeout(()=>{ document.querySelector('.step3-content').style.display='none'; document.getElementById('successMsg').style.display='block'; setTimeout(closeModal,3000); },800);
 }
