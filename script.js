@@ -1,4 +1,3 @@
-
 let totalSecs = 120;
 function updateCD() {
   const m = Math.floor(totalSecs/60), s = totalSecs%60;
@@ -39,6 +38,7 @@ async function submitForm() {
       body: formData
     });
   } catch(e){}
+  if(typeof fbq !== 'undefined') fbq('track', 'Lead');
   document.getElementById('s1').textContent='✓'; document.getElementById('s1').classList.remove('active'); document.getElementById('s1').classList.add('done');
   document.getElementById('sl1').classList.add('done');
   document.getElementById('s2').textContent='2'; document.getElementById('s2').classList.add('active');
@@ -46,5 +46,6 @@ async function submitForm() {
 }
 
 function markDone() {
+  if(typeof fbq !== 'undefined') fbq('track', 'Subscribe');
   setTimeout(()=>{ document.querySelector('.step3-content').style.display='none'; document.getElementById('successMsg').style.display='block'; setTimeout(closeModal,3000); },800);
 }
