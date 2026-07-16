@@ -38,13 +38,13 @@
     position:relative; z-index:1;
     min-height:100svh;
     display:flex; flex-direction:column;
-    padding: 0 20px 20px;
+    padding: 0 20px 12px;
   }
 
   /* badge */
   .top-badge {
     display:flex; align-items:center; justify-content:center;
-    padding: 10px 0 0; gap:8px;
+    padding: 8px 0 0; gap:8px;
   }
   .badge-dot { width:7px; height:7px; border-radius:50%; background:var(--electric); animation: pulse 1.5s infinite; }
   @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(1.4)} }
@@ -63,7 +63,7 @@
   .time-value { font-size:14px; color:var(--electric); font-weight:700; letter-spacing:4px; margin-top:0px; }
 
   /* headline */
-  .headline { text-align:center; margin-top:8px; padding: 0 4px; }
+  .headline { text-align:center; margin-top:6px; padding: 0 4px; }
   .headline h1 {
     font-family:'Bebas Neue', sans-serif;
     font-size:30px; line-height:1.05;
@@ -72,15 +72,15 @@
   .headline h1 .accent { color:var(--electric); }
   .headline h1 .accent-red { color:var(--red); }
   .sub-headline {
-    font-size:12px; color:rgba(255,255,255,.55);
-    margin-top:5px; line-height:1.5;
+    font-size:11px; color:rgba(255,255,255,.55);
+    margin-top:4px; line-height:1.4;
   }
 
   /* image */
   .hero-img-wrap {
     position:relative;
-    margin: 10px auto 0;
-    width:280px; height:280px;
+    margin: 8px auto 0;
+    width:240px; height:240px;
   }
   .hero-img-inner {
     width:100%; height:100%;
@@ -116,7 +116,7 @@
 
   /* countdown */
   .countdown-bar {
-    margin: 10px auto 0;
+    margin: 8px auto 0;
     max-width:340px; width:100%;
     background: rgba(255,255,255,.04);
     border:1px solid rgba(255,255,255,.08);
@@ -142,7 +142,13 @@
   .cd-bottom { text-align:center; margin-top:6px; font-size:10px; color:var(--red); font-weight:700; }
 
   /* CTA */
-  .cta-wrap { padding: 10px 0 0; }
+  .cta-wrap {
+    padding: 10px 0 0;
+    margin-top: auto;
+    position: sticky;
+    bottom: 12px;
+    z-index: 5;
+  }
   .btn-cta {
     display:block; width:100%;
     background: linear-gradient(135deg, var(--red), #ff3a1a);
