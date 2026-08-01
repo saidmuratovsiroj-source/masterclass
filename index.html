@@ -418,7 +418,7 @@ async function submitForm() {
   document.getElementById('nameError').style.display='none';
   document.getElementById('phoneError').style.display='none';
   const btn = document.getElementById('submitBtn');
-  btn.disabled=true; btn.innerHTML='<span class="spinner"></span>Saqlanmoqda...';
+  btn.disabled=true;
   const fullPhone = document.getElementById('countryCode').value + phone;
   const now = new Date().toLocaleString('uz-UZ',{timeZone:'Asia/Tashkent'});
   // Zaxira: lidni localStorage ga yozib qo'yish (Google Sheets ishlamay qolsa yo'qolmasin)
@@ -427,23 +427,25 @@ async function submitForm() {
     backup.push({name: name, phone: fullPhone, date: now});
     localStorage.setItem('leads_backup', JSON.stringify(backup));
   } catch(e){}
+  // Pixel: forma yuborildi (Lead) — DARROV
+  if(typeof fbq !== 'undefined') { fbq('track', 'Lead'); }
+  // Keyingi qadamga DARROV o'tkazamiz — kutish yo'q
+  document.getElementById('s1').textContent='✓'; document.getElementById('s1').classList.remove('active'); document.getElementById('s1').classList.add('done');
+  document.getElementById('sl1').classList.add('done');
+  document.getElementById('s2').textContent='2'; document.getElementById('s2').classList.add('active');
+  document.getElementById('page1').classList.remove('active'); document.getElementById('page3').classList.add('active');
+  // Lidni FONDA yuboramiz (kutmasdan). keepalive: odam tez chiqib ketsa ham yuboriladi
   try {
     const formData = new FormData();
     formData.append('name', name);
     formData.append('phone', fullPhone);
     formData.append('date', now);
     formData.append('source', 'masterclass-landing');
-    await fetch('https://script.google.com/macros/s/AKfycbwtFRSM-DtFnoXaTTtCt7xXNaQUyVsKyVJ5MFkFuQWhdkZA4WHoacRivE8BP934ywaKlw/exec',{
-      method:'POST', mode:'no-cors',
+    fetch('https://script.google.com/macros/s/AKfycbwtFRSM-DtFnoXaTTtCt7xXNaQUyVsKyVJ5MFkFuQWhdkZA4WHoacRivE8BP934ywaKlw/exec',{
+      method:'POST', mode:'no-cors', keepalive:true,
       body: formData
     });
   } catch(e){}
-  document.getElementById('s1').textContent='✓'; document.getElementById('s1').classList.remove('active'); document.getElementById('s1').classList.add('done');
-  document.getElementById('sl1').classList.add('done');
-  document.getElementById('s2').textContent='2'; document.getElementById('s2').classList.add('active');
-  document.getElementById('page1').classList.remove('active'); document.getElementById('page3').classList.add('active');
-  // Pixel: forma yuborildi (Lead)
-  if(typeof fbq !== 'undefined') { fbq('track', 'Lead'); }
 }
 
 function trackLead() { if(typeof fbq !== "undefined") { fbq("track", "Subscribe"); } }
